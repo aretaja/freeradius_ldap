@@ -1,0 +1,28 @@
+services:
+  app:
+    image: freeradius_ldap:latest
+    container_name: freeradius
+    restart: unless-stopped
+    restart: no
+    ports:
+      - "1812:1812/udp"
+      - "1813:1813/udp"
+    logging:
+      driver: syslog
+      options:
+        tag: "{{.DaemonName}}.{{.Name}}"
+    environment:
+        DEBUG: 0
+        CONFIG_CHECK: 0
+    volumes:
+      - type: bind
+        source: /var/log/my_containers/freeradius
+        target: /var/log/freeradius
+      - type: bind
+        source: /opt/my_containers/freeradius/etc/freeradius
+        target: /home/freeradius/config
+        read_only: true
+      - type: bind
+        source: /opt/my_containers/freeradius/etc/ldap
+        target: /home/freeradius/ldap
+        read_only: true
