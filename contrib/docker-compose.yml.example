@@ -21,7 +21,6 @@ services:
       - type: bind
         source: /opt/my_containers/freeradius/etc/freeradius
         target: /home/freeradius/config
-        read_only: true
       - type: bind
         source: /opt/my_containers/freeradius/etc/ldap
         target: /home/freeradius/ldap
