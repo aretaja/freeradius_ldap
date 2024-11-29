@@ -1,5 +1,5 @@
 #!/bin/sh
-chown -R freerad /var/log/freeradius
+chown -R freerad /var/log/freeradius ./config
 
 if [ "${DEBUG}" -eq 1 ]; then
     /usr/sbin/freeradius -f -x -l stdout -d ./config
