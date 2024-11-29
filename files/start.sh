@@ -1,4 +1,6 @@
 #!/bin/sh
+chown -R freerad /var/log/freeradius
+
 if [ "${DEBUG}" -eq 1 ]; then
     /usr/sbin/freeradius -f -x -l stdout -d ./config
 elif  [ "${CONFIG_CHECK}" -eq 1 ]; then
