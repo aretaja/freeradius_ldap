@@ -3,7 +3,7 @@
 docker build --network=host -t freeradius_ldap .
 ```
 
-# Maake config/log environment
+# Make config/log environment
 ```
 mkdir -p /opt/my_containers/freeradius/etc/freeradius && \
 mkdir -p /opt/my_containers/freeradius/etc/ldap && \
